@@ -245,7 +245,7 @@ async function remove() {
             >{{ row.visible ? "Published" : "Hidden" }} · Order
             {{ row.sort_order }}</small
           ></span
-        ><span>Edit ↗</span>
+        ><span>Edit <ArrowIcon /></span>
       </button>
     </div>
     <div v-else class="admin-panel">

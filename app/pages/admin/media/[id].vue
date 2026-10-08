@@ -82,7 +82,7 @@ async function action(kind: string) {
 </script>
 <template>
   <div>
-    <NuxtLink to="/admin/media" class="text-link">← Media library</NuxtLink>
+    <NuxtLink to="/admin/media" class="text-link"><ArrowIcon direction="left" /> Media library</NuxtLink>
     <h2 style="margin-top: 24px">Edit your frame</h2>
     <p v-if="error" class="feedback error" role="alert">{{ error }}</p>
     <p v-if="message" class="feedback" role="status">{{ message }}</p>

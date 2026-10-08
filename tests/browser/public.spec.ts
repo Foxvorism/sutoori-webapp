@@ -64,7 +64,7 @@ for (const width of [390, 768, 1440])
     ).toBe(true);
     await page.goto("/admin");
     await expect(page).toHaveURL(/\/admin\/login/);
-    const signIn = page.getByRole("button", { name: "Sign in →" });
+    const signIn = page.getByRole("button", { name: "Sign in", exact: true });
     if (await page.getByText("The studio is not connected yet.", { exact: false }).isVisible())
       await expect(signIn).toBeDisabled();
     else

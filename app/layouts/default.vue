@@ -29,7 +29,7 @@ watch(
         ><NuxtLink to="/#about">About</NuxtLink>
       </nav>
       <a class="header-contact" :href="contact || '/#contact'"
-        >Let's Talk <span aria-hidden="true">↗</span></a
+        >Let's Talk <span aria-hidden="true"><ArrowIcon /></span></a
       >
       <button
         class="menu-toggle"
@@ -68,23 +68,23 @@ watch(
               ? 'Start a conversation on WhatsApp'
               : 'Visit Sutoori on Instagram'
           "
-          >↗</a
+          ><ArrowIcon /></a
         >
       </div>
       <div class="contact-links">
-        <a v-if="contact" :href="contact">Start a conversation on WhatsApp ↗</a
+        <a v-if="contact" :href="contact">Start a conversation on WhatsApp <ArrowIcon /></a
         ><a
           v-if="settings.contacts_verified && settings.email"
           :href="`mailto:${settings.email}`"
-          >{{ settings.email }} ↗</a
+          >{{ settings.email }} <ArrowIcon /></a
         ><a :href="settings.instagram" target="_blank" rel="noopener noreferrer"
-          >Instagram ↗</a
+          >Instagram <ArrowIcon /></a
         >
       </div>
       <div class="footer-bottom">
         <span>© {{ new Date().getFullYear() }} Sutoori Production</span
         ><span>BOGOR–JABODETABEK, INDONESIA</span
-        ><a href="#main">Back to top ↑</a>
+        ><a href="#main">Back to top <ArrowIcon direction="up" /></a>
       </div>
     </footer>
   </div>

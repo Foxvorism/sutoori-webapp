@@ -119,7 +119,7 @@ defineExpose({ open });
             aria-label="Previous image"
             @click="move(-1)"
           >
-            ←</button
+            <ArrowIcon direction="left" /></button
           ><span aria-live="polite"
             >{{ position + 1 }} / {{ items.length }}</span
           ><button
@@ -127,7 +127,7 @@ defineExpose({ open });
             aria-label="Next image"
             @click="move(1)"
           >
-            →
+            <ArrowIcon direction="right" />
           </button>
         </div>
       </div>

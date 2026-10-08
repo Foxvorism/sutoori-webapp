@@ -55,14 +55,14 @@ async function login() {
         /></label>
         <p v-if="error" role="alert" class="feedback error">{{ error }}</p>
         <button class="button" :disabled="busy || !admin.configured">
-          {{ busy ? "Signing in…" : "Sign in →" }}
+          {{ busy ? "Signing in…" : "Sign in" }} <ArrowIcon v-if="!busy" direction="right" />
         </button>
         <p class="form-hint">
           Access is by invitation. Contact the site owner if you need an account
           or password reset.
         </p>
       </form>
-      <NuxtLink to="/">← Back to the website</NuxtLink>
+      <NuxtLink to="/"><ArrowIcon direction="left" /> Back to the website</NuxtLink>
     </div>
   </main>
 </template>

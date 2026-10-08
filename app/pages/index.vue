@@ -30,17 +30,17 @@ function playReel() {
     <div class="opening-scene">
     <section class="hero">
       <div class="hero-topline"><span class="hero-location"
-          >BOGOR, INDONESIA <span aria-hidden="true">↗</span></span
+          >BOGOR, INDONESIA <span aria-hidden="true"><ArrowIcon /></span></span
         >
       </div>
       <h1 class="hero-title"><span v-for="line in headlineLines" :key="line" class="hero-line">{{ line }}</span></h1>
       <div class="hero-bottomline">
         <p>{{ settings.supporting_copy }}</p>
         <a href="#work" class="text-link"
-          >Explore Our Work <span aria-hidden="true">↓</span></a
+          >Explore Our Work <span aria-hidden="true"><ArrowIcon direction="down" /></span></a
         >
       </div>
-      <div class="hero-sticker" aria-hidden="true">MAKE<br /><em>it matter.</em><span>↗</span></div>
+      <div class="hero-sticker" aria-hidden="true">MAKE<br /><em>it matter.</em><span><ArrowIcon /></span></div>
       <div class="hero-visual">
         <img
           v-if="data?.hero && !heroFailed"
@@ -71,14 +71,14 @@ function playReel() {
             :href="contact || '#contact'"
             class="round-link"
             aria-label="Start a conversation"
-            >↗</a
+            ><ArrowIcon /></a
           >
         </div>
         <span class="frame-marker">S / 01</span>
       </div>
       <div class="image-footnote">
         <span>FROM THE FIRST IDEA TO THE FINAL FRAME.</span
-        ><span>SCROLL TO DISCOVER ↓</span>
+        ><span>SCROLL TO DISCOVER <ArrowIcon direction="down" /></span>
       </div>
     </section>
     <section class="statement section-pad">
@@ -100,14 +100,14 @@ function playReel() {
       </div>
     </section>
     </div>
-    <div class="story-ribbon" aria-hidden="true"><span>REAL PEOPLE. REAL FEELING. ↗ STORIES THAT STAY. ↗ REAL PEOPLE. REAL FEELING. ↗ STORIES THAT STAY. ↗</span></div>
+    <div class="story-ribbon" aria-hidden="true"><span>REAL PEOPLE. REAL FEELING. <ArrowIcon /> STORIES THAT STAY. <ArrowIcon /> REAL PEOPLE. REAL FEELING. <ArrowIcon /> STORIES THAT STAY. <ArrowIcon /></span></div>
     <section id="work" class="selected-work section-pad">
       <div class="section-heading">
         <div>
           <span class="eyebrow">02 / THROUGH OUR LENS</span>
           <h2 data-reveal>Good moments.<br /><em>Great stories.</em></h2>
         </div>
-        <NuxtLink to="/work" class="text-link">View All Work ↗</NuxtLink>
+        <NuxtLink to="/work" class="text-link">View All Work <ArrowIcon /></NuxtLink>
       </div>
       <p v-if="data?.unavailable" class="notice" role="status">
         Some work is temporarily unavailable. Please check back shortly.
@@ -129,7 +129,7 @@ function playReel() {
       </div>
       <div v-else class="empty-work">
         <p>New stories are on their way.</p>
-        <NuxtLink to="/work">Explore the gallery ↗</NuxtLink>
+        <NuxtLink to="/work">Explore the gallery <ArrowIcon /></NuxtLink>
       </div>
     </section>
     <section id="services" class="services-section section-pad">
@@ -181,7 +181,7 @@ function playReel() {
             />
             <p>{{ service.description }}</p>
             <a :href="whatsappLink(settings, service.name) || '#contact'"
-              >Request a Quote ↗</a
+              >Request a Quote <ArrowIcon /></a
             >
           </div>
         </details>
@@ -197,7 +197,7 @@ function playReel() {
       </div>
       <div class="process-grid">
         <article v-for="(step, i) in settings.process" :key="i" data-reveal>
-          <span>0{{ i + 1 }} <span aria-hidden="true">↗</span></span>
+          <span>0{{ i + 1 }} <span aria-hidden="true"><ArrowIcon /></span></span>
           <h3>{{ step.title }}</h3>
           <p>{{ step.description }}</p>
         </article>
@@ -225,7 +225,7 @@ function playReel() {
             <li v-for="line in pkg.inclusions" :key="line">{{ line }}</li>
           </ul>
           <a :href="whatsappLink(settings, pkg.title) || '#contact'"
-            >Let's talk about this ↗</a
+            >Let's talk about this <ArrowIcon /></a
           >
         </article>
       </div>
@@ -243,7 +243,7 @@ function playReel() {
             target="_blank"
             rel="noopener noreferrer"
             class="text-link"
-            >Behind the scenes ↗</a
+            >Behind the scenes <ArrowIcon /></a
           ><span class="about-tag">#CreateYourStoryWithSutoori</span>
         </div>
       </div>

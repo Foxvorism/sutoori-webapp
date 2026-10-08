@@ -27,9 +27,10 @@ const failed = ref(false);
         @error="failed = true"
       />
       <span v-else class="media-unavailable">Image unavailable</span>
-      <span class="media-open" aria-hidden="true">{{
-        item.media_type === "video" ? "▶" : "↗"
-      }}</span
+      <span class="media-open" aria-hidden="true">
+        <svg v-if="item.media_type === 'video'" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="m7 4 14 8-14 8Z" /></svg>
+        <ArrowIcon v-else />
+      </span
       >
     </span>
     <span class="media-caption"

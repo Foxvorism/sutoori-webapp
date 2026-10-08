@@ -70,13 +70,13 @@ usePageSeo(
     </div>
     <div v-else-if="!pending && !error" class="empty-work">
       <h2>{{ category === "all" ? "New stories are on their way." : "No stories in this selection yet." }}</h2>
-      <NuxtLink v-if="category !== 'all'" to="/work">See all work ↗</NuxtLink>
+      <NuxtLink v-if="category !== 'all'" to="/work">See all work <ArrowIcon /></NuxtLink>
     </div>
     <div class="load-more">
       <p role="status">{{ items.length }} of {{ data?.count || 0 }} frames</p>
       <p v-if="moreError" role="alert">{{ moreError }}</p>
       <button v-if="items.length < (data?.count || 0)" class="button" :disabled="moreBusy" @click="loadMore">
-        {{ moreBusy ? "Loading…" : "Load more work ↓" }}
+        {{ moreBusy ? "Loading…" : "Load more work" }} <ArrowIcon v-if="!moreBusy" direction="down" />
       </button>
     </div>
     <MediaLightbox ref="lightbox" :items="items" />

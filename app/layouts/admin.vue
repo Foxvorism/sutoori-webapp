@@ -21,7 +21,7 @@ async function logout() {
     <header class="admin-header">
       <NuxtLink to="/admin"><h1>Sutoori / Studio dashboard</h1></NuxtLink>
       <div class="form-actions">
-        <NuxtLink to="/" target="_blank">View website ↗</NuxtLink
+        <NuxtLink to="/" target="_blank">View website <ArrowIcon /></NuxtLink
         ><button :disabled="signingOut" @click="logout">
           {{ signingOut ? "Signing out…" : "Sign out" }}
         </button>

@@ -10,15 +10,15 @@ useSeoMeta({ title: "Studio dashboard — Sutoori" });
     </p>
     <div class="admin-stats">
       <NuxtLink to="/admin/media"
-        ><strong>Media library ↗</strong
+        ><strong>Media library <ArrowIcon /></strong
         ><span
           >Upload, preview, organize, and publish your work.</span
         ></NuxtLink
       ><NuxtLink to="/admin/services"
-        ><strong>Services ↗</strong
+        ><strong>Services <ArrowIcon /></strong
         ><span>Keep your creative offering up to date.</span></NuxtLink
       ><NuxtLink to="/admin/settings"
-        ><strong>Site settings ↗</strong
+        ><strong>Site settings <ArrowIcon /></strong
         ><span>Set the hero, contact details, and your story.</span></NuxtLink
       >
     </div>
