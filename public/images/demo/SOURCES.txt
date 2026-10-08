@@ -1,0 +1,6 @@
+Stock images from Unsplash, for labelled layout previews only. Not Sutoori client work.
+concert: https://images.unsplash.com/photo-1492684223066-81342ee5ff30
+portrait: https://images.unsplash.com/photo-1529156069898-49953e39b3ac
+sport: https://images.unsplash.com/photo-1461896836934-ffe607ba8211
+wedding: https://images.unsplash.com/photo-1519741497674-611481863552
+studio: https://images.unsplash.com/photo-1497366811353-6870744d04b2

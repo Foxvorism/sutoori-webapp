@@ -1,0 +1,52 @@
+﻿import { test, expect } from '@playwright/test';
+
+test('opening expands, panels overlap, and motion reverses on desktop and mobile', async ({ page }) => {
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/');
+    await expect(page.locator('.pin-spacer')).toHaveCount(1);
+    await page.waitForTimeout(350);
+    const frame = page.locator('.hero-visual');
+    const initial = await frame.boundingBox();
+    await page.screenshot({ path: `.tmp/motion-start-${width}.png` });
+    await page.evaluate(() => scrollTo({ top: 850, behavior: 'instant' }));
+    await page.waitForTimeout(1000);
+    const expanded = await frame.boundingBox();
+    expect(expanded!.width).toBeGreaterThan(initial!.width * 1.2);
+    await page.screenshot({ path: `.tmp/motion-expanded-${width}.png` });
+    await page.evaluate(() => scrollTo({ top: 1400, behavior: 'instant' }));
+    await page.waitForTimeout(1000);
+    const statement = await page.locator('.statement').boundingBox();
+    expect(statement!.y).toBeLessThan(850);
+    expect(statement!.y + statement!.height).toBeGreaterThan(200);
+    await page.screenshot({ path: `.tmp/motion-overlap-${width}.png` });
+    await page.evaluate(() => scrollTo({ top: 1980, behavior: 'instant' }));
+    await page.waitForTimeout(1000);
+    await page.screenshot({ path: `.tmp/motion-statement-${width}.png` });
+    const lastWord = await page.locator('.statement-word').nth(1).boundingBox();
+    expect(lastWord!.x + lastWord!.width).toBeLessThanOrEqual(width);
+    await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
+    await page.waitForTimeout(1000);
+    expect(Math.abs((await frame.boundingBox())!.width - initial!.width)).toBeLessThan(2);
+    const cards = page.locator('.work-stack-card');
+    const secondTop = await cards.nth(1).evaluate(el => el.getBoundingClientRect().top + scrollY);
+    await page.evaluate(y => scrollTo({ top: y - 280, behavior: 'instant' }), secondTop);
+    await page.waitForTimeout(1000);
+    const first = await cards.nth(0).boundingBox();
+    const second = await cards.nth(1).boundingBox();
+    expect(first!.y).toBeLessThan(second!.y);
+    expect(first!.y + first!.height).toBeGreaterThan(second!.y);
+    await page.screenshot({ path: `.tmp/motion-stack-${width}.png` });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await expect(page.locator('.pin-spacer')).toHaveCount(0);
+    await expect(cards.first()).toHaveCSS('position', 'static');
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await expect(page.locator('.pin-spacer')).toHaveCount(1);
+    await page.waitForTimeout(350);
+    await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
+    await page.waitForTimeout(1000);
+    await expect(page.locator('.contact-heading')).toBeInViewport();
+    await page.screenshot({ path: `.tmp/motion-footer-${width}.png` });
+  }
+});
